@@ -66,13 +66,15 @@ class TelegramBotHandler extends AbstractProcessingHandler implements HandlerInt
      */
     protected function send(string $message, $option = []): void
     {
-        try {            
-            if(!isset($option['verify'])){
+        try {
+            if (!isset($option['verify'])) {
                 $option['verify'] = false;
             }
             if (!is_null($this->proxy)) {
                 $option['proxy'] = $this->proxy;
             }
+            $option['timeout'] = 5;
+
             $httpClient = new Client($option);
 
             if (strpos($this->botApi, 'https://api.telegram.org') === false) {
