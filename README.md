@@ -35,7 +35,7 @@ Open config/logging.php and change the file
             'handler_with' => [
                 'token' => env('LOG_BALE_BOT_TOKEN'),
                 'chat_id' => env('LOG_BALE_CHAT_ID'),
-                'bot_api' => env('LOG_BALE_BOT_API', 'https://api.bale.org/bot'),
+                'bot_api' => env('LOG_BALE_BOT_API', 'https://tapi.bale.ai/bot'),
                 'proxy' => env('LOG_BALE_BOT_PROXY', null),
             ],
             
@@ -53,7 +53,7 @@ Add the following variables to your .env file.
 ```php
 LOG_BALE_BOT_TOKEN=
 LOG_BALE_CHAT_ID=
-#LOG_BALE_BOT_API='https://api.bale.org/bot'
+#LOG_BALE_BOT_API='https://tapi.bale.ai/bot'
 # add tor proxy for restricted country
 #LOG_BALE_BOT_PROXY='socks5h://localhost:9050'
 ```

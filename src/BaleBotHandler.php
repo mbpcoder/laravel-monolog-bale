@@ -40,7 +40,7 @@ class BaleBotHandler extends AbstractProcessingHandler implements HandlerInterfa
      * @param string $channel Bale channel name
      * @inheritDoc
      */
-    public function __construct(string $token, string $chat_id, $level = Logger::DEBUG, bool $bubble = true, $bot_api = 'https://api.bale.org/bot', $proxy = null)
+    public function __construct(string $token, string $chat_id, $level = Logger::DEBUG, bool $bubble = true, $bot_api = 'https://tapi.bale.ai/bot', $proxy = null)
     {
         parent::__construct($level, $bubble);
 
@@ -61,7 +61,7 @@ class BaleBotHandler extends AbstractProcessingHandler implements HandlerInterfa
     }
 
     /**
-     * Send request to @link https://api.bale.org/bot on SendMessage action.
+     * Send request to @link https://tapi.bale.ai/bot on SendMessage action.
      * @param string $message
      */
     protected function send(string $message, $option = []): void
@@ -77,7 +77,7 @@ class BaleBotHandler extends AbstractProcessingHandler implements HandlerInterfa
 
             $httpClient = new Client($option);
 
-            if (strpos($this->botApi, 'https://api.bale.org') === false) {
+            if (strpos($this->botApi, 'https://tapi.bale.ai') === false) {
                 $url = $this->botApi;
             } else {
                 $url = $this->botApi . $this->token . '/SendMessage';
