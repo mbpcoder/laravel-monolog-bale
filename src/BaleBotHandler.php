@@ -1,13 +1,13 @@
 <?php
 
-namespace TheCoder\MonologTelegram;
+namespace TheCoder\MonologBale;
 
 use GuzzleHttp\Client;
 use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Handler\HandlerInterface;
 use Monolog\Logger;
 
-class TelegramBotHandler extends AbstractProcessingHandler implements HandlerInterface
+class BaleBotHandler extends AbstractProcessingHandler implements HandlerInterface
 {
     /**
      * bot api url
@@ -16,31 +16,31 @@ class TelegramBotHandler extends AbstractProcessingHandler implements HandlerInt
     private $botApi;
 
     /**
-     * Telegram bot access token provided by BotFather.
-     * Create telegram bot with https://telegram.me/BotFather and use access token from it.
+     * Bale bot access token provided by BotFather.
+     * Create bale bot with https://bale.me/BotFather and use access token from it.
      * @var string
      */
     private $token;
 
     /**
-     * if telegram is blocked in your region you can use proxy
+     * if bale is blocked in your region you can use proxy
      * @var null
      */
     private $proxy;
 
     /**
-     * Telegram channel name.
+     * Bale channel name.
      * Since to start with '@' symbol as prefix.
      * @var string
      */
     private $chatId;
 
     /**
-     * @param string $token Telegram bot access token provided by BotFather
-     * @param string $channel Telegram channel name
+     * @param string $token Bale bot access token provided by BotFather
+     * @param string $channel Bale channel name
      * @inheritDoc
      */
-    public function __construct(string $token, string $chat_id, $level = Logger::DEBUG, bool $bubble = true, $bot_api = 'https://api.telegram.org/bot', $proxy = null)
+    public function __construct(string $token, string $chat_id, $level = Logger::DEBUG, bool $bubble = true, $bot_api = 'https://api.bale.org/bot', $proxy = null)
     {
         parent::__construct($level, $bubble);
 
@@ -61,7 +61,7 @@ class TelegramBotHandler extends AbstractProcessingHandler implements HandlerInt
     }
 
     /**
-     * Send request to @link https://api.telegram.org/bot on SendMessage action.
+     * Send request to @link https://api.bale.org/bot on SendMessage action.
      * @param string $message
      */
     protected function send(string $message, $option = []): void
@@ -77,7 +77,7 @@ class TelegramBotHandler extends AbstractProcessingHandler implements HandlerInt
 
             $httpClient = new Client($option);
 
-            if (strpos($this->botApi, 'https://api.telegram.org') === false) {
+            if (strpos($this->botApi, 'https://api.bale.org') === false) {
                 $url = $this->botApi;
             } else {
                 $url = $this->botApi . $this->token . '/SendMessage';

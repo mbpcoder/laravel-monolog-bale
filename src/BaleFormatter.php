@@ -1,14 +1,14 @@
 <?php
 
-namespace TheCoder\MonologTelegram;
+namespace TheCoder\MonologBale;
 
 use Monolog\Formatter\FormatterInterface;
 use Monolog\Formatter\LineFormatter;
 
 /**
- * Formats a message to output suitable for Telegram chat
+ * Formats a message to output suitable for Bale chat
  */
-class TelegramFormatter implements FormatterInterface
+class BaleFormatter implements FormatterInterface
 {
     const MESSAGE_FORMAT = "<b>%level_name%</b> (%channel%) [%date%]\n\n%message%\n\n%context%%extra%";
     const DATE_FORMAT = 'Y-m-d H:i:s e';
@@ -121,7 +121,7 @@ class TelegramFormatter implements FormatterInterface
             . '<b>Ip:</b> ' . $request->getClientIp();
 
         try {
-            if (strpos($exception->getMessage(), 'Telegram') !== false && isset($exception->getTrace()[1]['args'][1]['chat_id'])) {
+            if (strpos($exception->getMessage(), 'Bale') !== false && isset($exception->getTrace()[1]['args'][1]['chat_id'])) {
                 $message .= '<b>Chat Id: </b> ' . $exception->getTrace()[1]['args'][1]['chat_id'] . PHP_EOL;
             }
         } catch (\Exception $e) {

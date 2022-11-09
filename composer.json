@@ -1,17 +1,17 @@
 {
-  "name": "thecoder/laravel-monolog-telegram",
-  "description": "Telegram Handler for Monolog",
+  "name": "thecoder/laravel-monolog-bale",
+  "description": "Bale Handler for Monolog",
   "keywords": [
     "log",
     "laravel",
     "monolog",
-    "monolog-telegram",
+    "monolog-bale",
     "logging",
     "bots",
-    "telegram",
+    "bale",
     "channels"
   ],
-  "homepage": "https://github.com/mbpcoder/monolog-telegram",
+  "homepage": "https://github.com/mbpcoder/monolog-bale",
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -28,6 +28,7 @@
   },
   "require": {
     "monolog/monolog": "^1.0|^2.0",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "guzzlehttp/guzzle": "^7.5"
   }
 }
